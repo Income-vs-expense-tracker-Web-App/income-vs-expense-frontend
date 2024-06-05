@@ -1,0 +1,1 @@
+export { default } from "file:///home/abraham/Desktop/code/projects/income-vs-expense-master/node_modules/@nuxt/vite-builder/dist/runtime/client.manifest.mjs"

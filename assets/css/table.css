@@ -1,0 +1,159 @@
+@import url("./fonts.css");
+.button {
+  /* height: 40px; */
+  display: inline-flex;
+  padding: 8px 30px;
+  gap: 8px;
+  justify-content: center;
+  border-radius: 50px;
+  font-family: "Work Sans", sans-serif;
+}
+
+.google-button {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px;
+  border-radius: 50px;
+  border: 1px solid #f9c8bf;
+}
+
+.button img {
+  height: 20px;
+  width: 20px;
+  object-fit: cover;
+}
+
+select {
+  -moz-appearance: none; /* Firefox */
+  -webkit-appearance: none; /* Safari and Chrome */
+  appearance: none;
+  outline: none;
+  font-family: "Work Sans", sans-serif;
+}
+
+/* made for select */
+.dropdown {
+  display: flex;
+  width: 420px;
+  padding: 16px 18px;
+  justify-content: space-between;
+  align-items: center;
+  flex: 1 0 0;
+  border-radius: 16px;
+  border: 1px solid var(--Neutral-200, #e5e5e5);
+  background: #fff;
+  background: url("/assets/icons/drop-down.svg") no-repeat right;
+  background-position: calc(100% - 0.75rem) center !important;
+  color: rgba(64, 64, 64, 1);
+}
+
+input[type="radio"] {
+  border: rgba(212, 212, 212, 1);
+  width: 21.117px;
+  height: 21.117px;
+}
+
+.white-button {
+  border-radius: 70.785px;
+  border: 1.416px solid var(--Generic-White, #fff);
+}
+
+.no-bg {
+  background-color: transparent;
+}
+#signup {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50vw;
+  height: 100vh;
+}
+#signupInner {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 70%;
+  user-select: none;
+}
+#signupImageDiv {
+  display: flex;
+  flex-direction: row;
+  height: auto;
+  user-select: none;
+}
+#signupImageDiv p {
+  font-weight: 600;
+  color: #262626;
+}
+#signupInner h1 {
+  color: #262626;
+}
+#signupInner #links {
+  height: auto;
+  display: flex;
+  flex-direction: column;
+}
+#signupInner #links p {
+  font-size: 1em;
+  color: #262626;
+  font-weight: 500;
+}
+#signupInner #links p a {
+  font-size: 1.1em;
+  text-decoration: none;
+  color: #b32ee9;
+  font-weight: 600;
+}
+#signupInner #links span {
+  font-size: 0.8em;
+  color: #262626;
+  font-weight: 500;
+}
+#signupInner #links span a {
+  text-decoration: underline;
+  font-size: 0.8em;
+  color: #262626;
+}
+
+/* Screens lower than 1024px */
+@media (max-width: 1024px) {
+  #signup {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+  }
+}
+
+/* Code for login page */
+/* im sharing one CSS file for sign up and sign in */
+#loginLeft {
+  display: flex;
+  background-image: url("../../assets/images/bg-login.png");
+  background-size: cover;
+  color: white !important;
+  background-repeat: no-repeat;
+  justify-content: space-between;
+  height: 100vh;
+  width: 50vw;
+}
+#loginBottom {
+  margin-top: 70%;
+  height: 15em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+#loginBottom h1 {
+  color: #fff;
+}
+
+@media(max-width:1024px){
+  #loginLeft{
+    display: none;
+  }
+}
