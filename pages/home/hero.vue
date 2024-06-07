@@ -18,7 +18,6 @@
                         src="@/assets/icons/red_downward_arrow.svg" alt="">2%</span>
             </div>
         </div>
-        <!-- <GraphComponent /> -->
     </div>
 </template>
 
@@ -30,7 +29,6 @@ export default {
     };
   },
   components: {
-    GraphComponent
   }
 };
 </script>

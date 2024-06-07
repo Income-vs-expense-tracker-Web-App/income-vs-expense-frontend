@@ -1,6 +1,6 @@
 <template>
-    <div class="sign-up">
-        <div class="form">
+    <div class="home">
+        <div class="container">
             <div class="top">
                 <h2 class="font-size-40 weight-8 ">Create Account</h2>
                 <p class="mt-1" style="color: var(--color); text-align: center; line-height: 30px;">
@@ -8,7 +8,7 @@
                     financial journey.</p>
             </div>
 
-            <div class="container mt-4">
+            <div class="form mt-4">
                 <input type="text" name="fullName" id="fullName" placeholder="First & Last name">
                 <input type="email" name="emailAddress" id="emailAddress" class="mt-2" placeholder="Email Address">
 
@@ -16,16 +16,30 @@
                     <input v-if="showPassword" type="text" name="" id="" placeholder="Create Password"
                         v-model="password">
                     <input v-else type="password" name="" id="" placeholder="Create Password" v-model="password">
-                    <button @click="toggleShowPassword">
+                    <button @click="toggleShowPassword" class="visbilty">
                         <img v-if="showPassword" src="@/assets/icons//visibility_off.svg" alt="">
                         <img v-else src="@/assets/icons/visibility.svg" alt="">
                     </button>
                 </div>
-                <span class="checkbox mt-1 pointer" >
-                    <input type="checkbox" name="accept-term pointer" id="accept-terms" >
-                    <label for="accept-terms" class="ml-1 pointer">I agree with the <a href="#">Terms & Conditions</a> of this app</label>
+                <span class="checkbox mt-2 pointer">
+                    <input type="checkbox" name="accept-term pointer" id="accept-terms">
+                    <label for="accept-terms" class="ml-1 pointer">I agree with the <a href="#">Terms & Conditions</a>
+                        of this app</label>
                 </span>
+
+                <NuxtLink class="mt-2 btn btn-secondary" to="/home">
+                    <p class="weight-6" style="color: var(--white);">Sign Up</p>
+                </NuxtLink>
+
+                <NuxtLink class="mt-2 btn btn-primary" to="/home" >
+                    <img src="@/assets/icons/google.svg" alt="" draggable="false">
+                    <p class="ml-1 weight-6">Sign Up with Google</p>
+                </NuxtLink>
             </div>
+            <p class="weight-5 mt-2" style="text-align: center;">
+                Already have an account?
+                <NuxtLink href="/signIn" class="weight-7" style="color: var(--blue);">Sign In</NuxtLink>
+            </p>
         </div>
     </div>
 </template>
@@ -47,28 +61,32 @@ export default {
 </script>
 
 <style scoped>
-.sign-up {
+.home {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 80px 40px;
     height: 100vh;
+
+    @media (width < 790px) {
+        padding: 40px 20px;
+    }
 }
 
-.form {
+.container {
     display: flex;
     flex-direction: column;
     max-width: 470px;
     align-items: stretch;
 }
 
-.form .top {
+.container .top {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.form .container {
+.container .form {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -76,38 +94,48 @@ export default {
     align-items: stretch;
 }
 
-.form .container input[type=text],
+.container .form input[type=text],
 input[type=password],
 input[type=email] {
     padding: 24px;
     font-size: 16px;
     border: 1px solid #4E4E4E;
     border-radius: 4px;
+
+    @media (width < 790px) {
+        padding: 16px;
+    }
 }
 
-.form .container input::placeholder {
+.container .form input::placeholder {
     color: #52525B;
 }
 
-.form .container input:focus {
+.container .form input:focus {
     outline: 1px solid #1A1A1A;
 }
 
-.form .container .password {
+.container .form .password {
     padding: 24px;
     border: 1px solid #4E4E4E;
     border-radius: 4px;
     display: flex;
+    align-items: center;
     justify-content: space-between;
+
+    @media (width < 790px) {
+        padding: 16px;
+    }
 }
 
-.form .container .password input {
+.container .form .password input {
     padding: 0px;
     border: 0px;
     outline: none;
+    height: 20px;
 }
 
-.form .container .password button {
+.container .form .password .visbilty {
     border: none;
     outline: 0px;
     background: transparent;
@@ -117,14 +145,36 @@ input[type=email] {
     justify-content: center;
 }
 
-.form .container .checkbox {
+.container.form .checkbox {
     display: flex;
     align-items: center;
 }
 
-.form .container .checkbox input {
+.container .form .checkbox input {
     outline: none;
     width: 15px;
     height: 15px;
+}
+
+.container .form .btn {
+    padding: 24px;
+    border-radius: 4px;
+    border: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    @media (width < 790px) {
+        padding: 16px;
+    }
+}
+
+.container .form .btn-secondary {
+    background-color: var(--blue);
+}
+
+.container .form .btn-primary {
+    background-color: #F8FAFC;
 }
 </style>
