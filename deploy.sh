@@ -6,4 +6,4 @@ read -p "Enter a commit message: " message
 
 git commit -m "$message"
 
-git push orgin main
+git push 
