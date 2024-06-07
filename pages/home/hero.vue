@@ -18,12 +18,11 @@
                         src="@/assets/icons/red_downward_arrow.svg" alt="">2%</span>
             </div>
         </div>
-        <GraphComponent />
+        <!-- <GraphComponent /> -->
     </div>
 </template>
 
 <script>
-import GraphComponent from '../index/components/GraphComponent.vue';
 
 export default {
   data() {

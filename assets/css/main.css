@@ -70,10 +70,14 @@ a {
 p,
 a,
 label,
-li {
+li,
+input {
     font-family: "manrope", sans-serif !important;
-    line-height: 1.4 !important;
     font-size: 16px; 
+}
+
+a {
+    color: var(--blue);
 }
 
 p {
