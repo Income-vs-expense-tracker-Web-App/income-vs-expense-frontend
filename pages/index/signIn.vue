@@ -2,21 +2,24 @@
     <div class="home">
         <div class="container">
             <div class="top">
-                <h2 class="font-size-40 weight-8 ">Sign in</h2>
+                <h2 class="font-size-40 weight-7 ">Sign in</h2>
                 <p class="mt-1" style="color: var(--color); text-align: center; line-height: 30px;">
                     Monitor your income and expenses effortlessly and gain clarity on your
                     financial journey.</p>
             </div>
 
             <div class="form mt-4">
-                <input type="email" name="emailAddress" id="emailAddress" class="mt-2" placeholder="Email Address">
+                <!-- Email  -->
+                <label class="weight-5" for="emailAddress">Email Address</label>
+                <input type="email" name="emailAddress" id="emailAddress" class="mt-1">
 
-                <div class="password mt-2">
-                    <input v-if="showPassword" type="text" name="" id="" placeholder="Password"
-                        v-model="password">
-                    <input v-else type="password" name="" id="" placeholder="Password" v-model="password">
+                <!-- Password  -->
+                <label class="mt-2 weight-5" for="password">Create Password</label>
+                <div class="password mt-1">
+                    <input v-if="showPassword" type="text" name="" id="password" v-model="password">
+                    <input v-else type="password" name="" id="password" v-model="password">
                     <button @click="toggleShowPassword" class="visbilty">
-                        <img v-if="showPassword" src="@/assets/icons/visibility_off.svg" alt="">
+                        <img v-if="showPassword" src="@/assets/icons//visibility_off.svg" alt="">
                         <img v-else src="@/assets/icons/visibility.svg" alt="">
                     </button>
                 </div>
@@ -31,8 +34,8 @@
                 </NuxtLink>
             </div>
             <p class="weight-5 mt-2" style="text-align: center;">
-                Don't have an account? 
-                <a href="/" class="weight-7" style="color: var(--blue);">Sign up</a>
+                Don't have an account?
+                <a href="/" class="weight-7" style="color: var(--black);">Sign up</a>
             </p>
         </div>
     </div>
@@ -88,10 +91,8 @@ export default {
     align-items: stretch;
 }
 
-.container .form input[type=text],
-input[type=password],
-input[type=email] {
-    padding: 24px;
+.container .form input[type=email] {
+    padding: 12px;
     font-size: 16px;
     border: 1px solid #4E4E4E;
     border-radius: 4px;
@@ -110,7 +111,7 @@ input[type=email] {
 }
 
 .container .form .password {
-    padding: 24px;
+    padding: 12px;
     border: 1px solid #4E4E4E;
     border-radius: 4px;
     display: flex;
@@ -126,6 +127,7 @@ input[type=email] {
     padding: 0px;
     border: 0px;
     outline: none;
+    width: 100%;
     height: 20px;
 }
 
@@ -151,7 +153,7 @@ input[type=email] {
 }
 
 .container .form .btn {
-    padding: 24px;
+    padding: 12px;
     border-radius: 4px;
     border: 0px;
     display: flex;
@@ -165,7 +167,7 @@ input[type=email] {
 }
 
 .container .form .btn-secondary {
-    background-color: var(--blue);
+    background-color: var(--black);
 }
 
 .container .form .btn-primary {

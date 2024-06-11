@@ -2,43 +2,44 @@
     <div class="home">
         <div class="container">
             <div class="top">
-                <h2 class="font-size-40 weight-8 ">Create Account</h2>
+                <h2 class="font-size-40 weight-7 ">Create Account</h2>
                 <p class="mt-1" style="color: var(--color); text-align: center; line-height: 30px;">
-                    Monitor your income and expenses effortlessly and gain clarity on your
-                    financial journey.</p>
+                    Take control of your finances with our intuitive tracker. Monitor your income and expenses
+                    effortlessly and gain clarity on your financial journey.</p>
             </div>
 
-            <div class="form mt-4">
-                <input type="text" name="fullName" id="fullName" placeholder="First & Last name">
-                <input type="email" name="emailAddress" id="emailAddress" class="mt-2" placeholder="Email Address">
+            <div class="form mt-2">
+                <!-- Fullname -->
+                <label class="weight-5" for="fullName">First & Last name</label>
+                <input class="mt-1" type="text" name="fullName" id="fullName">
+                
+                <!-- Email Address  -->
+                <label class="mt-2 weight-5" for="emailAddre">Email Address</label>
+                <input type="email" name="emailAddress" id="emailAddress" class="mt-2">
 
-                <div class="password mt-2">
-                    <input v-if="showPassword" type="text" name="" id="" placeholder="Create Password"
-                        v-model="password">
-                    <input v-else type="password" name="" id="" placeholder="Create Password" v-model="password">
+                <!-- Password -->
+                <label class="mt-2 weight-5" for="password">Create Password</label>
+                <div class="password mt-1">
+                    <input v-if="showPassword" type="text" name="" id="password" v-model="password">
+                    <input v-else type="password" name="" id="password" v-model="password">
                     <button @click="toggleShowPassword" class="visbilty">
                         <img v-if="showPassword" src="@/assets/icons//visibility_off.svg" alt="">
                         <img v-else src="@/assets/icons/visibility.svg" alt="">
                     </button>
                 </div>
-                <span class="checkbox mt-2 pointer">
-                    <input type="checkbox" name="accept-term pointer" id="accept-terms">
-                    <label for="accept-terms" class="ml-1 pointer">I agree with the <a href="#">Terms & Conditions</a>
-                        of this app</label>
-                </span>
 
-                <NuxtLink class="mt-2 btn btn-secondary" to="/home">
+                <NuxtLink class="mt-2 btn btn-secondary weight-6" to="/home">
                     <p class="weight-6" style="color: var(--white);">Sign Up</p>
                 </NuxtLink>
 
-                <NuxtLink class="mt-2 btn btn-primary" to="/home" >
+                <NuxtLink class="mt-2 btn btn-primary weight-6" to="/home">
                     <img src="@/assets/icons/google.svg" alt="" draggable="false">
                     <p class="ml-1 weight-6">Sign Up with Google</p>
                 </NuxtLink>
             </div>
             <p class="weight-5 mt-2" style="text-align: center;">
                 Already have an account?
-                <NuxtLink href="/signIn" class="weight-7" style="color: var(--blue);">Sign In</NuxtLink>
+                <NuxtLink href="/signIn" class="weight-7" style="color: var(--black);">Sign In</NuxtLink>
             </p>
         </div>
     </div>
@@ -65,7 +66,7 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 80px 40px;
+    padding: 40px 40px;
     height: 100vh;
 
     @media (width < 790px) {
@@ -97,17 +98,18 @@ export default {
 .container .form input[type=text],
 input[type=password],
 input[type=email] {
-    padding: 24px;
+    padding: 12px;
     font-size: 16px;
     border: 1px solid #4E4E4E;
     border-radius: 4px;
+    outline: 0px;
 
     @media (width < 790px) {
         padding: 16px;
     }
 }
 
-.container .form input::placeholder {
+.container .form label {
     color: #52525B;
 }
 
@@ -116,7 +118,7 @@ input[type=email] {
 }
 
 .container .form .password {
-    padding: 24px;
+    padding: 12px;
     border: 1px solid #4E4E4E;
     border-radius: 4px;
     display: flex;
@@ -132,6 +134,7 @@ input[type=email] {
     padding: 0px;
     border: 0px;
     outline: none;
+    width: 100%;
     height: 20px;
 }
 
@@ -145,19 +148,9 @@ input[type=email] {
     justify-content: center;
 }
 
-.container.form .checkbox {
-    display: flex;
-    align-items: center;
-}
-
-.container .form .checkbox input {
-    outline: none;
-    width: 15px;
-    height: 15px;
-}
 
 .container .form .btn {
-    padding: 24px;
+    padding: 12px;
     border-radius: 4px;
     border: 0px;
     display: flex;
@@ -171,7 +164,7 @@ input[type=email] {
 }
 
 .container .form .btn-secondary {
-    background-color: var(--blue);
+    background-color: var(--black);
 }
 
 .container .form .btn-primary {

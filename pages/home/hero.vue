@@ -6,11 +6,13 @@
                     <p class="font-size-14 weight-5">Last Month’s Income <span></span></p>
                     <h2>$19,300.2</h2>
                     <p class="font-size-14 weight-5">Nov 30 - Dec 30</p>
+                    <Button class="">Add income <img src="@/assets/icons/add.svg" alt=""></Button>
                 </div>
                 <div class="content income">
                     <p class="font-size-14 weight-5">Last Month’s Expense<span></span></p>
                     <h2>$20,500.55</h2>
                     <p class="font-size-14 weight-5">Nov 30 - Dec 30</p>
+                    <Button class="">Add Expense <img src="@/assets/icons/add.svg" alt=""></Button>
                 </div>
             </div>
             <div class="net-income weight-7">
@@ -22,14 +24,15 @@
 </template>
 
 <script>
-
+import Button from '~/components/Button.vue';
 export default {
-  data() {
-    return {
-    };
-  },
-  components: {
-  }
+    data() {
+        return {
+        };
+    },
+    components: {
+        Button
+    }
 };
 </script>
 
@@ -110,6 +113,4 @@ export default {
     display: flex;
     align-items: center;
 }
-
-
 </style>

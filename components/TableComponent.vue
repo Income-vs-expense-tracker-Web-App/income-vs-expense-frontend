@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="table-container">
     <table class="custom-table">
       <!-- Table head -->
       <thead>
@@ -17,8 +17,13 @@
             'no-border-left': cellIndex === 0,
             'no-border-right': cellIndex === row.length - 1,
             'no-border-bottom': rowIndex === data.length - 1
-          }" class="font-size-14">
-            {{ cell }}
+          }" class="font-size-14 cell">
+            <template v-if="cellIndex === 4">
+              <span class="category">{{ cell }}</span>
+            </template>
+            <template v-else>
+              {{ cell }}
+            </template>
           </td>
         </tr>
       </tbody>
@@ -42,6 +47,10 @@ export default {
 </script>
 
 <style scoped>
+.table-container {
+  overflow-x: auto;
+}
+
 .custom-table {
   width: 100%;
   border-collapse: separate;
@@ -50,16 +59,13 @@ export default {
   font-size: 18px;
   text-align: left;
   border-radius: 8px;
-  border: 1px solid #525252;
-  /* Round all corners */
-  overflow: hidden;
-  /* Ensure rounding is visible */
-  border: 1px solid #ddd;
 }
 
 .custom-table th,
 .custom-table td {
-  padding: 12px 15px;
+  font-weight: 600 !important;
+  font-size: 14px;
+  padding: 16px 20px;
   border-left: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
   font-family: 'manrope', sans-serif;
@@ -71,12 +77,12 @@ export default {
   background-color: #f4f4f4;
 }
 
-.custom-table tbody tr:nth-child(even) {
-  background-color: #f9f9f9;
-}
-
 .custom-table tbody tr:hover {
   background-color: #f1f1f1;
+}
+
+.custom-table td {
+  color: #292929;
 }
 
 .custom-table td.no-border-left {
@@ -89,5 +95,23 @@ export default {
 
 .custom-table td.no-border-bottom {
   border-bottom: 0;
+}
+
+.category {
+  color: #4350FF;
+  background-color: #4350ff31;
+  padding: 4px 8px;
+  border-radius: 50px;
+  font-weight: 500;
+}
+
+.cell {
+  padding: 20px !important;
+}
+
+/* Ensure the table header stays aligned when scrolling */
+.table-container {
+  display: block;
+  white-space: nowrap;
 }
 </style>

@@ -3,12 +3,14 @@
       <h2 class="weight-8 font-size-32">Welcome David 👋🏾</h2>
       <Hero />
       <Table />
+
     </div>
   </template>
   
   <script>
   import Hero from './hero.vue';
   import Table from './table.vue';
+
   
   export default {
     components: {
