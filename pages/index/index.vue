@@ -29,17 +29,17 @@
                 </div>
 
                 <NuxtLink class="mt-2 btn btn-secondary weight-6" to="/home">
-                    <p class="weight-6" style="color: var(--white);">Sign Up</p>
+                    <p class="weight-6" style="color: var(--black);">Sign Up</p>
                 </NuxtLink>
 
                 <NuxtLink class="mt-2 btn btn-primary weight-6" to="/home">
                     <img src="@/assets/icons/google.svg" alt="" draggable="false">
-                    <p class="ml-1 weight-6">Sign Up with Google</p>
+                    <p class="ml-1 weight-6" style="color: var(--white);">Sign Up with Google</p>
                 </NuxtLink>
             </div>
-            <p class="weight-5 mt-2" style="text-align: center;">
+            <p class="weight-5 mt-2" style="text-align: center; color: var(--color);">
                 Already have an account?
-                <NuxtLink href="/signIn" class="weight-7" style="color: var(--black);">Sign In</NuxtLink>
+                <NuxtLink href="/signIn" class="weight-7" style="color: var(--white);">Sign In</NuxtLink>
             </p>
         </div>
     </div>
@@ -103,6 +103,8 @@ input[type=email] {
     border: 1px solid #4E4E4E;
     border-radius: 4px;
     outline: 0px;
+    background-color: #121212;
+    
 
     @media (width < 790px) {
         padding: 16px;
@@ -110,7 +112,7 @@ input[type=email] {
 }
 
 .container .form label {
-    color: #52525B;
+    color: var(--white);
 }
 
 .container .form input:focus {
@@ -124,6 +126,7 @@ input[type=email] {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    background-color: #121212;
 
     @media (width < 790px) {
         padding: 16px;
@@ -136,6 +139,8 @@ input[type=email] {
     outline: none;
     width: 100%;
     height: 20px;
+    background-color: #121212;
+
 }
 
 .container .form .password .visbilty {
@@ -164,10 +169,11 @@ input[type=email] {
 }
 
 .container .form .btn-secondary {
-    background-color: var(--black);
-}
-
-.container .form .btn-primary {
     background-color: #F8FAFC;
+    color: #000 !important;
+}
+    
+    .container .form .btn-primary {
+    background-color: var(--black);
 }
 </style>

@@ -10,11 +10,11 @@
 
             <div class="form mt-4">
                 <!-- Email  -->
-                <label class="weight-5" for="emailAddress">Email Address</label>
+                <label class="weight-5 white"  for="emailAddress">Email Address</label>
                 <input type="email" name="emailAddress" id="emailAddress" class="mt-1">
 
                 <!-- Password  -->
-                <label class="mt-2 weight-5" for="password">Create Password</label>
+                <label class="mt-2 weight-5 white" for="password">Create Password</label>
                 <div class="password mt-1">
                     <input v-if="showPassword" type="text" name="" id="password" v-model="password">
                     <input v-else type="password" name="" id="password" v-model="password">
@@ -25,17 +25,17 @@
                 </div>
 
                 <NuxtLink class="mt-2 btn btn-secondary" to="/home">
-                    <p class="weight-6" style="color: var(--white);">Sign In</p>
+                    <p class="weight-6" style="color: var(--black);">Sign In</p>
                 </NuxtLink>
 
                 <NuxtLink class="mt-2 btn btn-primary" to="/home">
                     <img src="@/assets/icons/google.svg" alt="" draggable="false">
-                    <p class="ml-1 weight-6">Sign In with Google</p>
+                    <p class="ml-1 weight-6 white">Sign In with Google</p>
                 </NuxtLink>
             </div>
-            <p class="weight-5 mt-2" style="text-align: center;">
+            <p class="weight-5 mt-2" style="text-align: center; color: var(--color);">
                 Don't have an account?
-                <a href="/" class="weight-7" style="color: var(--black);">Sign up</a>
+                <a href="/" class="weight-7 white" >Sign up</a>
             </p>
         </div>
     </div>
@@ -96,6 +96,8 @@ export default {
     font-size: 16px;
     border: 1px solid #4E4E4E;
     border-radius: 4px;
+    background-color: #121212;
+    color: #fff;
 
     @media (width < 790px) {
         padding: 16px;
@@ -117,6 +119,7 @@ export default {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    background-color: #121212;
 
     @media (width < 790px) {
         padding: 16px;
@@ -129,6 +132,8 @@ export default {
     outline: none;
     width: 100%;
     height: 20px;
+    background-color: #121212;
+    color: #fff;
 }
 
 .container .form .password .visbilty {
@@ -167,10 +172,10 @@ export default {
 }
 
 .container .form .btn-secondary {
-    background-color: var(--black);
+    background-color: var(--white);
 }
 
 .container .form .btn-primary {
-    background-color: #F8FAFC;
+    background-color: var(--black);
 }
 </style>

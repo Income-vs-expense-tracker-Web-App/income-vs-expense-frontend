@@ -77,7 +77,6 @@ export default {
     display: flex;
     align-items: center;
     gap: 6px;
-    color: #424242;
 }
 
 .hero .card .container .content p span {
@@ -108,7 +107,6 @@ export default {
     padding: 2px 6px;
     border-radius: 50px;
     font-size: 14px;
-    background-color: var(--light-red);
     color: var(--red);
     display: flex;
     align-items: center;

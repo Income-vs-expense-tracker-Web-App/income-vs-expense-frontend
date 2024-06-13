@@ -80,14 +80,32 @@
       "vue-demi": [
         "../node_modules/nuxt/dist/app/compat/vue-demi"
       ],
-      "#primevue-style": [
-        "./primevue-style.mjs"
+      "#ui": [
+        "../node_modules/@nuxt/ui/dist/runtime"
+      ],
+      "#ui/*": [
+        "../node_modules/@nuxt/ui/dist/runtime/*"
+      ],
+      "#ui-colors": [
+        "./ui.colors"
+      ],
+      "#icon-collections": [
+        "./icon-collections"
+      ],
+      "#color-mode-options": [
+        "./color-mode-options.mjs"
       ],
       "#vue-router": [
         "./vue-router-stub"
       ],
       "#imports": [
         "./imports"
+      ],
+      "#tailwind-config": [
+        "./tailwind.config"
+      ],
+      "#tailwind-config/*": [
+        "./tailwind.config/*"
       ],
       "#app-manifest": [
         "./manifest/meta/dev"
@@ -125,7 +143,10 @@
     "./nuxt.d.ts",
     "../.config/nuxt.*",
     "../**/*",
-    "../node_modules/nuxt-primevue/runtime",
+    "../node_modules/nuxt-icon/runtime",
+    "../node_modules/@nuxtjs/color-mode/runtime",
+    "../node_modules/@nuxtjs/tailwindcss/runtime",
+    "../node_modules/@nuxt/ui/runtime",
     "../node_modules/@nuxt/devtools/runtime",
     "../node_modules/@nuxt/telemetry/runtime",
     ".."
@@ -133,7 +154,10 @@
   "exclude": [
     "../node_modules",
     "../node_modules/nuxt/node_modules",
-    "../node_modules/nuxt-primevue/runtime/server",
+    "../node_modules/nuxt-icon/runtime/server",
+    "../node_modules/@nuxtjs/color-mode/runtime/server",
+    "../node_modules/@nuxtjs/tailwindcss/runtime/server",
+    "../node_modules/@nuxt/ui/runtime/server",
     "../node_modules/@nuxt/devtools/runtime/server",
     "../node_modules/@nuxt/telemetry/runtime/server",
     "../dist",

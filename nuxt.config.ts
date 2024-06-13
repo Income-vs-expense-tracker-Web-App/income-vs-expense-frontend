@@ -5,11 +5,8 @@ export default defineNuxtConfig({
   css: [
     "~/assets/css/main.css"
   ],
-  modules: [
-    'nuxt-primevue'
-  ],
-  primevue: {
-    ripple: true, // Enable ripple effect (optional)
-    // Other PrimeVue configurations
-  }
+
+  modules: ['@nuxt/ui']
+
+  // modules: ['@nuxtjs/ui', "@nuxt/ui"],
 })

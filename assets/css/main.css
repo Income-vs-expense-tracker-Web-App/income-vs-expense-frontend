@@ -4,16 +4,16 @@
 
 
 :root {
-    --background-color: #fff; 
-    --color: #292929;
+    --background-color: #000; 
+    --color: #B8B8C7;
     --white: white;
     --black: black;
     --primary: black;
     --ascent: #2BFF88;
-    --light-ascent: #ECFDF3;
+    --light-ascent: #ff464653;
     --red: #E23C2F;
-    --light-red: #FDDBD9;
-    --gray: 525252;
+    --light-red: #fddbd93f;
+    --gray: #DDDDDD;
     --primary-tint: #D9D9D9;
     --border-radius: 4px;
     --blue: #246EFE;
@@ -45,7 +45,7 @@ h6 {
     font-family: 'manrope', sans-serif;
     font-weight: 600;
     line-height: 1.2 !important;
-    color: var(--black);
+    color: var(--white);
 }
 
 
@@ -80,7 +80,7 @@ a {
 }
 
 p {
-    color: var(--color);
+    color: var(--gray);
 }
 
 @media (max-width: 1000px) {

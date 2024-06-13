@@ -33,8 +33,8 @@
   }
   
   .primary {
-    background-color: var(--black);
-    color: #fff;
+    background-color: var(--white);
+    color: #000;
     font-weight: 500;
   }
   
