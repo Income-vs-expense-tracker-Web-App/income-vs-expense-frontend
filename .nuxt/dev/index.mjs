@@ -70,31 +70,6 @@ function _expandFromEnv(value) {
 const inlineAppConfig = {
   "nuxt": {
     "buildId": "dev"
-  },
-  "ui": {
-    "primary": "green",
-    "gray": "cool",
-    "colors": [
-      "red",
-      "orange",
-      "amber",
-      "yellow",
-      "lime",
-      "green",
-      "emerald",
-      "teal",
-      "cyan",
-      "sky",
-      "blue",
-      "indigo",
-      "violet",
-      "purple",
-      "fuchsia",
-      "pink",
-      "rose",
-      "primary"
-    ],
-    "strategy": "merge"
   }
 };
 
@@ -624,7 +599,7 @@ function getRouteRulesForPath(path) {
   return defu({}, ..._routeRulesMatcher.matchAll(path).reverse());
 }
 
-const script$1 = `
+const script = `
 if (!window.__NUXT_DEVTOOLS_TIME_METRIC__) {
   Object.defineProperty(window, '__NUXT_DEVTOOLS_TIME_METRIC__', {
     value: {},
@@ -637,7 +612,7 @@ window.__NUXT_DEVTOOLS_TIME_METRIC__.appInit = Date.now()
 
 const _q8DFmtFIgb = (function(nitro) {
   nitro.hooks.hook("render:html", (htmlContext) => {
-    htmlContext.head.push(`<script>${script$1}<\/script>`);
+    htmlContext.head.push(`<script>${script}<\/script>`);
   });
 });
 
@@ -709,18 +684,9 @@ function onConsoleLog(callback) {
   consola.wrapConsole();
 }
 
-const script = "\"use strict\";(()=>{const a=window,e=document.documentElement,c=window.localStorage,d=[\"dark\",\"light\"],n=c&&c.getItem&&c.getItem(\"nuxt-color-mode\")||\"system\";let l=n===\"system\"?f():n;const i=e.getAttribute(\"data-color-mode-forced\");i&&(l=i),r(l),a[\"__NUXT_COLOR_MODE__\"]={preference:n,value:l,getColorScheme:f,addColorScheme:r,removeColorScheme:u};function r(o){const t=\"\"+o+\"\",s=\"\";e.classList?e.classList.add(t):e.className+=\" \"+t,s&&e.setAttribute(\"data-\"+s,o)}function u(o){const t=\"\"+o+\"\",s=\"\";e.classList?e.classList.remove(t):e.className=e.className.replace(new RegExp(t,\"g\"),\"\"),s&&e.removeAttribute(\"data-\"+s)}function m(o){return a.matchMedia(\"(prefers-color-scheme\"+o+\")\")}function f(){if(a.matchMedia&&m(\"\").media!==\"not all\"){for(const o of d)if(m(\":\"+o).matches)return o}return\"light\"}})();\n";
-
-const _nDTEAjuvoq = (function(nitro) {
-  nitro.hooks.hook("render:html", (htmlContext) => {
-    htmlContext.head.push(`<script>${script}<\/script>`);
-  });
-});
-
 const plugins = [
   _q8DFmtFIgb,
-_odzP3UIAdm,
-_nDTEAjuvoq
+_odzP3UIAdm
 ];
 
 const scheduledTasks = false;

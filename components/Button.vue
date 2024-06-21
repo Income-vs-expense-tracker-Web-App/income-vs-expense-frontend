@@ -30,6 +30,7 @@
     font-family: 'manrope', sans-serif;
     font-size: 15px;
     font-weight: 500;
+    max-width: 200px;
   }
   
   .primary {

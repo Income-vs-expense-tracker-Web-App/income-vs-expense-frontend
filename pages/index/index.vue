@@ -12,7 +12,7 @@
                 <!-- Fullname -->
                 <label class="weight-5" for="fullName">First & Last name</label>
                 <input class="mt-1" type="text" name="fullName" id="fullName">
-                
+
                 <!-- Email Address  -->
                 <label class="mt-2 weight-5" for="emailAddre">Email Address</label>
                 <input type="email" name="emailAddress" id="emailAddress" class="mt-2">
@@ -30,11 +30,6 @@
 
                 <NuxtLink class="mt-2 btn btn-secondary weight-6" to="/home">
                     <p class="weight-6" style="color: var(--black);">Sign Up</p>
-                </NuxtLink>
-
-                <NuxtLink class="mt-2 btn btn-primary weight-6" to="/home">
-                    <img src="@/assets/icons/google.svg" alt="" draggable="false">
-                    <p class="ml-1 weight-6" style="color: var(--white);">Sign Up with Google</p>
                 </NuxtLink>
             </div>
             <p class="weight-5 mt-2" style="text-align: center; color: var(--color);">
@@ -104,7 +99,7 @@ input[type=email] {
     border-radius: 4px;
     outline: 0px;
     background-color: #121212;
-    
+
 
     @media (width < 790px) {
         padding: 16px;
@@ -172,8 +167,8 @@ input[type=email] {
     background-color: #F8FAFC;
     color: #000 !important;
 }
-    
-    .container .form .btn-primary {
+
+.container .form .btn-primary {
     background-color: var(--black);
 }
 </style>
