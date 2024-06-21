@@ -1,24 +1,22 @@
-<!-- pages/home/hero.vue -->
 <template>
   <div class="hero">
     <div class="card">
-      <div class="container">
+      <p class="font-size-20 weight-7">Showing Date For 2024-11-30 - 2024-12-30</p>
+      <div class="net-income weight-6 mt-1">
+        <p>Net Income: <span> ${{ netIncome }}</span></p> <span class="percentage"><img src="@/assets/icons/red_arrow.svg"
+            alt="">2%</span>
+      </div>
+      <div class="container mt-1">
         <div class="content">
-          <p class="font-size-14 weight-5">Last Month’s Income <span></span></p>
-          <h2>$19,300.2</h2>
-          <p class="font-size-14 weight-5">Nov 30 - Dec 30</p>
-          <Button @click="showAddIncomeForm = true" class="">Add income <img src="@/assets/icons/add.svg" alt=""></Button>
+          <p class="font-size-14 weight-5">Income <span></span></p>
+          <h2>${{ totalIncome }}</h2>
         </div>
         <div class="content income">
-          <p class="font-size-14 weight-5">Last Month’s Expense<span></span></p>
-          <h2>$20,500.55</h2>
-          <p class="font-size-14 weight-5">Nov 30 - Dec 30</p>
-          <Button @click="showAddExpenseForm = true" class="">Add Expense <img src="@/assets/icons/add.svg" alt=""></Button>
+          <p class="font-size-14 weight-5">Expense<span></span></p>
+          <h2>${{ totalExpense }}</h2>
         </div>
       </div>
-      <div class="net-income weight-7">
-        <p>Net Income: <span> -$15,000.25</span></p> <span class="percentage"><img src="@/assets/icons/red_downward_arrow.svg" alt="">2%</span>
-      </div>
+      <Button @click="showAddExpenseForm = true" class="mt-4">Add Transaction <img src="@/assets/icons/add.svg" alt=""></Button>
     </div>
     <FormModal v-if="showAddIncomeForm || showAddExpenseForm" @close="showAddIncomeForm = showAddExpenseForm = false" />
   </div>
@@ -42,13 +40,20 @@ export default {
 };
 </script>
 
+<script setup>
+import { storeToRefs } from 'pinia';
+import { useDataStore } from '~/stores/store';
+
+const dataStore = useDataStore();
+const { totalIncome, totalExpense, netIncome } = storeToRefs(dataStore);
+</script>
+
 
 <style scoped>
 .hero {
   align-self: stretch;
   display: flex;
   justify-content: space-between;
-  gap: 50px;
   padding: 28px 0px;
 
   @media (width < 801px) {
@@ -60,7 +65,7 @@ export default {
 .hero .card {
   display: flex;
   flex-direction: column;
-  gap: 26px;
+  /* gap: 5px; */
 }
 
 .hero .card .container {

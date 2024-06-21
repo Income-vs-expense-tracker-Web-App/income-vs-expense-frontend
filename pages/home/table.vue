@@ -2,10 +2,7 @@
 <template>
   <div>
     <h2>Transaction Table</h2>
-    <div style="font-weight: bold; margin-bottom: 10px;">
-      Net Income: {{ netIncome }}
-    </div>
-    <table>
+    <table class="mt-2">
       <thead>
         <tr>
           <th>Date</th>
@@ -18,22 +15,12 @@
       <tbody>
         <tr v-for="transaction in transactions" :key="transaction.date + transaction.source">
           <td>{{ transaction.date }}</td>
-          <td>\${{ transaction.amount.toFixed(2) }}</td>
+          <td>${{ transaction.amount.toFixed(2) }}</td>
           <td>{{ transaction.source }}</td>
           <td>{{ transaction.comment }}</td>
           <td>{{ transaction.category }}</td>
         </tr>
       </tbody>
-      <tfoot>
-        <tr>
-          <td colspan="4" style="text-align: right;">Total Income</td>
-          <td>\${{ totalIncome.toFixed(2) }}</td>
-        </tr>
-        <tr>
-          <td colspan="4" style="text-align: right;">Total Expense</td>
-          <td>\${{ totalExpense.toFixed(2) }}</td>
-        </tr>
-      </tfoot>
     </table>
   </div>
 </template>
