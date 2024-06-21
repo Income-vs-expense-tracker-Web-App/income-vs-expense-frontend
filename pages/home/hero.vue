@@ -1,32 +1,35 @@
-<!-- pages/home/hero.vue -->
 <template>
   <div class="hero">
     <div class="card">
+      <div class="date" >
+        <label for="start-date">Start Date:</label>
+        <input type="date" id="start-date" v-model="dateRange.start" />
+        <label for="end-date">End Date:</label>
+        <input type="date" id="end-date" v-model="dateRange.end" />
+      </div>
+      <p class="font-size-14 weight-5">Date: {{ dateRange.start }} - {{ dateRange.end }}</p>
       <div class="container">
         <div class="content">
-          <p class="font-size-14 weight-5">Last Month’s Income <span></span></p>
-          <h2>$19,300.2</h2>
-          <p class="font-size-14 weight-5">Nov 30 - Dec 30</p>
-          <Button @click="showAddIncomeForm = true" class="">Add income <img src="@/assets/icons/add.svg" alt=""></Button>
+          <p class="font-size-14 weight-5">Income <span></span></p>
+          <h2>${{ totalIncome }}</h2>
         </div>
         <div class="content income">
-          <p class="font-size-14 weight-5">Last Month’s Expense<span></span></p>
-          <h2>$20,500.55</h2>
-          <p class="font-size-14 weight-5">Nov 30 - Dec 30</p>
-          <Button @click="showAddExpenseForm = true" class="">Add Expense <img src="@/assets/icons/add.svg" alt=""></Button>
+          <p class="font-size-14 weight-5">Expense<span></span></p>
+          <h2>${{ totalExpense }}</h2>
         </div>
       </div>
+      <Button @click="showAddTransactionForm = true" class="">Add Transaction <img src="@/assets/icons/add.svg" alt=""></Button>
       <div class="net-income weight-7">
-        <p>Net Income: <span> -$15,000.25</span></p> <span class="percentage"><img src="@/assets/icons/red_downward_arrow.svg" alt="">2%</span>
+        <p>Net Income: <span>${{ netIncome }}</span></p> <span class="percentage"><img src="@/assets/icons/red_arrow.svg" alt="">2%</span>
       </div>
     </div>
-    <FormModal v-if="showAddIncomeForm || showAddExpenseForm" @close="showAddIncomeForm = showAddExpenseForm = false" />
+    <FormModal v-if="showAddTransactionForm" @close="showAddTransactionForm = false" />
   </div>
 </template>
 
 <script>
 import Button from '@/components/Button.vue';
-import FormModal from './formModal.vue'; // We'll create this component next
+import FormModal from './formModal.vue';
 
 export default {
   components: {
@@ -35,11 +38,47 @@ export default {
   },
   data() {
     return {
-      showAddIncomeForm: false,
-      showAddExpenseForm: false
+      showAddTransactionForm: false,
+      dateRange: {
+        start: '2024-06-04',
+        end: '2024-11-30'
+      }
     };
+  },
+  computed: {
+    filteredTransactions() {
+      return this.$store.state.transactions.filter(transaction => {
+        const date = new Date(transaction.date);
+        const startDate = new Date(this.dateRange.start);
+        const endDate = new Date(this.dateRange.end);
+        return date >= startDate && date <= endDate;
+      });
+    },
+    totalIncome() {
+      return this.filteredTransactions
+        .filter(transaction => transaction.category === 'Income')
+        .reduce((sum, transaction) => sum + transaction.amount, 0)
+        .toFixed(2);
+    },
+    totalExpense() {
+      return this.filteredTransactions
+        .filter(transaction => transaction.category === 'Expense')
+        .reduce((sum, transaction) => sum + transaction.amount, 0)
+        .toFixed(2);
+    },
+    netIncome() {
+      return (this.totalIncome - this.totalExpense).toFixed(2);
+    }
   }
 };
+</script>
+
+<script setup>
+import { storeToRefs } from 'pinia';
+import { useDataStore } from '~/stores/store';
+
+const dataStore = useDataStore();
+const { totalIncome, totalExpense, netIncome } = storeToRefs(dataStore);
 </script>
 
 
