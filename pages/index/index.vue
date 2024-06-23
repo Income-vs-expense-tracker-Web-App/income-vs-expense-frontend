@@ -99,6 +99,7 @@ input[type=email] {
     border-radius: 4px;
     outline: 0px;
     background-color: #121212;
+    color: #fff;
 
 
     @media (width < 790px) {
@@ -135,6 +136,8 @@ input[type=email] {
     width: 100%;
     height: 20px;
     background-color: #121212;
+    color: #fff;
+
 
 }
 

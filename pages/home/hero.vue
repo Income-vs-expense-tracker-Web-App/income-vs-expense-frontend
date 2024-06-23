@@ -16,15 +16,15 @@
           <h2>${{ totalExpense }}</h2>
         </div>
       </div>
-      <Button @click="showAddExpenseForm = true" class="mt-4">Add Transaction <img src="@/assets/icons/add.svg" alt=""></Button>
+      <Button @click="showAddTransactionForm = true" class="mt-4">Add Transaction <img src="@/assets/icons/add.svg" alt=""></Button>
     </div>
-    <FormModal v-if="showAddIncomeForm || showAddExpenseForm" @close="showAddIncomeForm = showAddExpenseForm = false" />
+    <FormModal v-if="showAddTransactionForm" @close="showAddTransactionForm = false" />
   </div>
 </template>
 
 <script>
 import Button from '@/components/Button.vue';
-import FormModal from './formModal.vue'; // We'll create this component next
+import FormModal from './formModal.vue';
 
 export default {
   components: {
@@ -33,8 +33,7 @@ export default {
   },
   data() {
     return {
-      showAddIncomeForm: false,
-      showAddExpenseForm: false
+      showAddTransactionForm: false
     };
   }
 };

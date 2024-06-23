@@ -2,7 +2,7 @@
 <template>
   <div>
     <h2>Transaction Table</h2>
-    <table class="mt-2">
+    <table class="mt-1">
       <thead>
         <tr>
           <th>Date</th>
