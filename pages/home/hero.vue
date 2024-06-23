@@ -1,10 +1,11 @@
 <template>
   <div class="hero">
     <div class="card">
-      <p class="font-size-20 weight-7">Showing Date For 2024-11-30 - 2024-12-30</p>
       <div class="net-income weight-6 mt-1">
-        <p>Net Income: <span> ${{ netIncome }}</span></p> <span class="percentage"><img src="@/assets/icons/red_arrow.svg"
-            alt="">2%</span>
+        <p>Net Income: <span> ${{ netIncome }}</span></p>
+        <span :class="percentageClass">
+          <img :src="percentageIcon" alt="">{{ netIncomePercentage }}%
+        </span>
       </div>
       <div class="container mt-1">
         <div class="content">
@@ -16,45 +17,50 @@
           <h2>${{ totalExpense }}</h2>
         </div>
       </div>
-      <Button @click="showAddTransactionForm = true" class="mt-4">Add Transaction <img src="@/assets/icons/add.svg" alt=""></Button>
+      <Button @click="showAddTransactionForm = true" class="mt-4">
+        Add Transaction <img src="@/assets/icons/add.svg" alt="">
+      </Button>
     </div>
     <FormModal v-if="showAddTransactionForm" @close="showAddTransactionForm = false" />
+    <Graph />
   </div>
 </template>
 
-<script>
-import Button from '@/components/Button.vue';
-import FormModal from './formModal.vue';
-
-export default {
-  components: {
-    Button,
-    FormModal
-  },
-  data() {
-    return {
-      showAddTransactionForm: false
-    };
-  }
-};
-</script>
-
 <script setup>
+import { ref, computed } from 'vue';
 import { storeToRefs } from 'pinia';
 import { useDataStore } from '~/stores/store';
+import Button from '@/components/Button.vue';
+import FormModal from './formModal.vue';
+import Graph from './graph.vue';
 
 const dataStore = useDataStore();
 const { totalIncome, totalExpense, netIncome } = storeToRefs(dataStore);
-</script>
 
+const showAddTransactionForm = ref(false);
+
+const netIncomePercentage = computed(() => {
+  const income = totalIncome.value;
+  const expense = totalExpense.value;
+  if (income === 0) return 0;
+  return Math.round((income - expense) / income * 100);
+});
+
+const percentageClass = computed(() => {
+  return netIncomePercentage.value > 49 ? 'text-green' : 'text-red';
+});
+
+const percentageIcon = computed(() => {
+  return netIncomePercentage.value > 49 ? '@/assets/icons/greenArrow.svg' : '@/assets/icons/redArrow.svg';
+});
+</script>
 
 <style scoped>
 .hero {
   align-self: stretch;
   display: flex;
   justify-content: space-between;
-  padding: 28px 0px;
-
+  
   @media (width < 801px) {
     flex-direction: column-reverse;
     gap: 25px;
@@ -119,5 +125,12 @@ const { totalIncome, totalExpense, netIncome } = storeToRefs(dataStore);
   display: flex;
   align-items: center;
   margin-left: 10px
+}
+
+.text-green {
+  color: green;
+}
+.text-red {
+  color: red;
 }
 </style>
