@@ -1,25 +1,24 @@
+<!-- pages/home/index.vue -->
 <template>
-    <div class="home">
-      <h2 class="weight-8 font-size-32">Welcome David 👋🏾</h2>
-      <Hero />
-      <Table />
+  <div class="home">
+    <h2 class="weight-8 font-size-32">Welcome David 👋🏾</h2>
+    <Hero />
+    <Table />
+  </div>
+</template>
 
-    </div>
-  </template>
-  
-  <script>
-  import Hero from './hero.vue';
-  import Table from './table.vue';
+<script>
+import Hero from './hero.vue';
+import Table from './table.vue';
 
-  
-  export default {
-    components: {
-      Hero,
-      Table
-    }
-  };
-  </script>
-  
+export default {
+  components: {
+    Hero,
+    Table
+  }
+};
+</script>
+
 
 <style scoped>
 .home {

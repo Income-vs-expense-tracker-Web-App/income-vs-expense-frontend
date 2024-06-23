@@ -27,11 +27,6 @@
                 <NuxtLink class="mt-2 btn btn-secondary" to="/home">
                     <p class="weight-6" style="color: var(--black);">Sign In</p>
                 </NuxtLink>
-
-                <NuxtLink class="mt-2 btn btn-primary" to="/home">
-                    <img src="@/assets/icons/google.svg" alt="" draggable="false">
-                    <p class="ml-1 weight-6 white">Sign In with Google</p>
-                </NuxtLink>
             </div>
             <p class="weight-5 mt-2" style="text-align: center; color: var(--color);">
                 Don't have an account?

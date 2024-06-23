@@ -26,10 +26,11 @@
     padding: 8px 8px;
     border: none;
     border-radius: 4px;
-    cursor: pointer;
+    cursor: pointer !important;
     font-family: 'manrope', sans-serif;
     font-size: 15px;
     font-weight: 500;
+    max-width: 200px;
   }
   
   .primary {
